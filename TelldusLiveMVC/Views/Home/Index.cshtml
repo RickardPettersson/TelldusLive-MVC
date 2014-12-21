@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Start";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to My Telldus Live!</h1>
+    @if (String.IsNullOrEmpty(TelldusLiveMVC.Helpers.TelldusLiveHelper.OAuthToken))
+    {
+        @Html.ActionLink("Login", "Index", "Auth", null, new { @class = "btn btn-primary" })
+    }
+</div>
+

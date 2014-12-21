@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Sensors";
+
+    TelldusLiveMVC.Models.TelldusLiveSensors sensorList = ViewBag.sensorList as TelldusLiveMVC.Models.TelldusLiveSensors;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (sensorList.sensor == null || sensorList.sensor.Count == 0)
+{
+    <i>No sensors found</i>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>client</th>
+            <th>clientName</th>
+            <th>editable</th>
+            <th>online</th>
+            <th>ignored</th>
+            <th>lastUpdated</th>
+        </tr>
+        @foreach (var device in sensorList.sensor)
+        {
+            <tr>
+                <td>@device.id</td>
+                <td>@device.name</td>
+                <td>@device.client</td>
+                <td>@device.clientName</td>
+                <td>@device.editable</td>
+                <td>@device.online</td>
+                <td>@device.ignored</td>
+                <td>@device.lastUpdated</td>
+            </tr>
+        }
+    </table>
+}

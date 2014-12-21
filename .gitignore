@@ -1,0 +1,6 @@
+bin
+obj
+documents
+App_Data
+logs
+*.suo

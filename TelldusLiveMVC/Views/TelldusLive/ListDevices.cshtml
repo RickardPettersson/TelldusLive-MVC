@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Devices";
+
+    TelldusLiveMVC.Models.TelldusLiveDevices deviceList = ViewBag.deviceList as TelldusLiveMVC.Models.TelldusLiveDevices;
+}
+
+@Scripts.Render("~/bundles/TelldusLive")
+
+<h2>@ViewBag.Title</h2>
+
+@if (deviceList.device == null || deviceList.device.Count == 0)
+{
+    <i>No devices found</i>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>clientDeviceId</th>
+            <th>id</th>
+            <th>name</th>
+            <th>client</th>
+            <th>clientName</th>
+            <th>editable</th>
+            <th>methods</th>
+            <th>online</th>
+            <th>state</th>
+            <th>statevalue</th>
+            <th>type</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var device in deviceList.device)
+        {
+            <tr>
+                <td>@device.clientDeviceId</td>
+                <td>@device.id</td>
+                <td>@device.name</td>
+                <td>@device.client</td>
+                <td>@device.clientName</td>
+                <td>@device.editable</td>
+                <td>@device.methods</td>
+                <td>@device.online</td>
+                <td>@device.state</td>
+                <td>@device.statevalue</td>
+                <td>@device.type</td>
+                <td><button class="btn" onclick="JavaScript:TurnOn(@device.id);">Turn On</button></td>
+                <td><button class="btn" onclick="JavaScript:TurnOff(@device.id);">Turn Off</button></td>
+                <td><button class="btn" onclick="JavaScript:Learn(@device.id);">Learn</button></td>
+            </tr>
+        }
+    </table>
+}
