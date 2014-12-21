@@ -175,6 +175,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TelldusLiveSensor.cs" />
     <Compile Include="Models\TelldusLiveDevice.cs" />
+    <Compile Include="Models\TelldusLiveSensorInfocs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -218,6 +219,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\TelldusLive\ListDevices.cshtml" />
     <Content Include="Views\TelldusLive\ListSensors.cshtml" />
+    <Content Include="Views\TelldusLive\SensorInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

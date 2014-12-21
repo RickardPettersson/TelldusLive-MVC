@@ -22,6 +22,7 @@ else
             <th>online</th>
             <th>ignored</th>
             <th>lastUpdated</th>
+            <th></th>
         </tr>
         @foreach (var device in sensorList.sensor)
         {
@@ -34,6 +35,7 @@ else
                 <td>@device.online</td>
                 <td>@device.ignored</td>
                 <td>@device.lastUpdated</td>
+                <th><a href="/TelldusLive/SensorInfo/@device.id" class="btn btn-default">Sensor info</a></th>
             </tr>
         }
     </table>

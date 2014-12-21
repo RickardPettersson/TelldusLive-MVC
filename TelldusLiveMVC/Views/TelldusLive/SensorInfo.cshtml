@@ -1,0 +1,32 @@
+﻿@model TelldusLiveMVC.Models.TelldusLiveSensorInfo
+@{
+    ViewBag.Title = "Sensor Info";
+
+    DateTime lastUpdated = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+    lastUpdated = lastUpdated.AddSeconds(double.Parse(Model.lastUpdated));
+}
+
+<h2>Sensor Info</h2>
+
+<ul>
+    <li>clientName: @Model.clientName</li>
+    <li>editable: @Model.editable</li>
+    <li>id: @Model.id</li>
+    <li>ignored: @Model.ignored</li>
+    <li>lastUpdated: @lastUpdated.ToString("yyyy-MM-dd HH:mm:ss")</li>
+    <li>name: @Model.name</li>
+    <li>protocol: @Model.protocol</li>
+    <li>sensorId: @Model.sensorId</li>
+    <li>timezoneoffset: @Model.timezoneoffset</li>
+    <li>
+        data:
+        <ul>
+            @foreach (var d in Model.data)
+            {
+                <li>name: @d.name - value: @d.value</li>
+            }
+        </ul>
+    </li>
+</ul>
+
+<a href="/TelldusLive/ListSensors" class="btn btn-default">Back to sensor list</a>
